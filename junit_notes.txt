@@ -1,0 +1,25 @@
+#########
+# Basics
+#########
+- test fixture = fixed data and fixed environment so that test runs and results are repeatable
+- input data, mock objects, loading database with known data, etc
+
+- unit testing = ideally 70-80% converage
+- no external dependencies, no database, no spring context, etc
+
+- integration tests = between objects and overall system
+- can include spring context, database and message brokers, etc
+
+- functional tests = testing the running application which is live and deployed
+- testing functionality like using a web driver, calling web services, sending/receiving messages, etc
+
+- unit tests => integration tests => functional tests
+
+- tdd = unit tests first -> fix -> refactor
+- bdd = given -> when -> then
+
+- mocks = fake implementation of a class
+- test double for dependent objects - expected - verify
+
+- spy = like a mock but real object
+
