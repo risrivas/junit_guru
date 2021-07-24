@@ -23,3 +23,37 @@
 
 - spy = like a mock but real object
 
+
+#####################
+# Testing Frameworks
+#####################
+# Junit
+- most popular
+- Junit 5 released on 2017
+
+# TestNG
+- 2004 as an alternative to Junit
+
+# Spock
+- in groovy
+- BDD
+- own mocking framework built-in
+
+# Cucumber
+- BDD
+- for java, ruby, js
+- very popular in Ruby
+- Gherkin syntax
+
+# Mockito
+- only for mocks
+- used with Junit or TestNG
+
+# REST-assured
+- for testing RESTful web services
+- BDD
+
+# Selenium
+- only web browser automation
+- used with Junit, TestNG or Spock
+
