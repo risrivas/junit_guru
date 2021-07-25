@@ -57,3 +57,24 @@
 - only web browser automation
 - used with Junit, TestNG or Spock
 
+##########
+# CI / CD
+##########
+# Continuous Integration
+Check-in code => automated build and tests triggered => results via email or other means to report errors if any
+
+- Common CI Build servers
+self-hosted: Jenkins, Bamboo, TeamCity, Hudson
+cloud based: TravisCI, Gitlab CI, AWS CodeBuild
+
+# Continuous Deployment
+- automatically deploy build artifacts after all CI tests have run to dev / uat / staging
+example - AWS CodePipeline
+
+# Continuous Delivery
+- automatically deliver code changes directly to the prod
+- involves high degree of automation in testing and deployment
+- not used in banks because of compliance
+
+Continuous Integration => Continuous Deployment => Continuous Delivery
+
