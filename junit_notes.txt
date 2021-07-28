@@ -84,5 +84,20 @@ Continuous Integration => Continuous Deployment => Continuous Delivery
 ##################
 - famous book by Kent Beck
 
+## Project 1: Multi Currency Money
+- add amounts in 2 different currencies
+- multiply an amount by a number of shares
+
+# TDD TODO list
+- $5 + 10 CHF = $10 (2 CHF = 1 USD)
+- $5 * 2 = $10
+- Make "amount" private
+- Dollar side affects ?
+- Money Rounding ?
+
+
+
+
+
 
 
