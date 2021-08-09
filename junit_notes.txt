@@ -94,6 +94,7 @@ Continuous Integration => Continuous Deployment => Continuous Delivery
 - Make "amount" private
 - Dollar side affects ?
 - Money Rounding ?
+- equals()
 
 
 
