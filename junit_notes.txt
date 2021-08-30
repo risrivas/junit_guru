@@ -98,6 +98,23 @@ Continuous Integration => Continuous Deployment => Continuous Delivery
 
 
 
+##########
+# JUnit5
+##########
+- for maven setup, need to add 2 dependencies
+junit-jupiter-api
+junit-jupiter-engine
+
+- need to add build plugins
+maven-compiler-plugin
+maven-surefire-plugin
+maven-failsafe-plugin
+
+
+
+
+
+
 
 
 
