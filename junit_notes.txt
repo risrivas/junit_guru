@@ -110,7 +110,6 @@ maven-compiler-plugin
 maven-surefire-plugin
 maven-failsafe-plugin
 
-
 - for gradle setup, similarly add 2 dependencies as above
 - for executing test, just add this:
 test {
@@ -118,9 +117,20 @@ test {
     testLogging.showStandardStreams(true)
 }
 
+# Assertions API
+https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/Assertions.html
 
+# grouped assertions
+        //given
+        Person person = new Person(1L, "Kent", "Beck");
 
+        //then
+        assertAll("Test Props Set",
+                () -> assertEquals("Kent", person.getFirstName(), "First Name Failed"),
+                () -> assertEquals("Beck", person.getLastName(), "Last Name Failed")
+        );
 
+#
 
 
 

@@ -20,23 +20,16 @@ class GreetingTest {
 
     @Test
     void helloWorld() {
-        greeting = new Greeting();
-
         System.out.println(greeting.helloWorld());
-
     }
 
     @Test
     void helloWorld1() {
-        greeting = new Greeting();
-
         System.out.println(greeting.helloWorld("John"));
     }
 
     @Test
     void helloWorld2() {
-        greeting = new Greeting();
-
         System.out.println(greeting.helloWorld("Sam"));
     }
 
