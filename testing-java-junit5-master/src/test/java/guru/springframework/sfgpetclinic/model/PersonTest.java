@@ -12,10 +12,10 @@ class PersonTest {
 
     @Test
     void groupedAssertions() {
-        //given
+        // given
         Person person = new Person(1L, "Kent", "Beck");
 
-        //then
+        // then
         assertAll("Test Props Set",
                 () -> assertEquals("Kent", person.getFirstName()),
                 () -> assertEquals("Beck", person.getLastName())
@@ -24,10 +24,10 @@ class PersonTest {
 
     @Test
     void groupedAssertionMsgs() {
-        //given
+        // given
         Person person = new Person(1L, "Kent", "Beck");
 
-        //then
+        // then
         assertAll("Test Props Set",
                 () -> assertEquals("Kent", person.getFirstName(), "First Name Failed"),
                 () -> assertEquals("Beck", person.getLastName(), "Last Name Failed")
