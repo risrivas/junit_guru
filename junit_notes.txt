@@ -164,6 +164,31 @@ void index() {}
             Thread.sleep(2000);
         });
 
+- test using assumptions, if the assumption is false, test is ignored
+assumeTrue("GURU".equalsIgnoreCase(System.getenv("GURU_RUNTIME")));
+- assumption test is useful for checking if config / env is good to proceed to test with
+
+# Conditional Testing
+- examples are self-explanatory
+    @EnabledOnOs(OS.WINDOWS)
+    @Test
+    void testMeOnWindows() {
+
+    }
+
+    @EnabledOnJre(JRE.JAVA_8)
+    @Test
+    void testMeOnJava8() {
+
+    }
+
+    @EnabledIfEnvironmentVariable(named = "username", matches = "rishi")
+    @Test
+    void testIfUserRishi() {
+
+    }
+
+
 
 
 
