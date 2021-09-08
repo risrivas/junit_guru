@@ -188,6 +188,17 @@ assumeTrue("GURU".equalsIgnoreCase(System.getenv("GURU_RUNTIME")));
 
     }
 
+# AssertJ
+- need to add dependency
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.19.0</version>
+            <scope>test</scope>
+        </dependency>
+
+- sample test assertion
+assertThat(controller.index()).isEqualTo("index");
 
 
 
