@@ -188,6 +188,7 @@ assumeTrue("GURU".equalsIgnoreCase(System.getenv("GURU_RUNTIME")));
 
     }
 
+
 # AssertJ
 - need to add dependency
         <dependency>
@@ -199,6 +200,23 @@ assumeTrue("GURU".equalsIgnoreCase(System.getenv("GURU_RUNTIME")));
 
 - sample test assertion
 assertThat(controller.index()).isEqualTo("index");
+
+
+# Hamcrest
+- add dependency
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
+            <version>1.3</version>
+            <scope>test</scope>
+        </dependency>
+
+- sample test assertion
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+
+assertThat(owner.getCity(), is("Key West"));
+
 
 
 
