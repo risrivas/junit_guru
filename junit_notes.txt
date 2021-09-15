@@ -244,6 +244,24 @@ class OwnerTest{
 - usage is to tag it and can implement in all the classes for tag testing
 - can define default methods in the interface
 
+# Repeated Test
+- can repeat a test any number of times
+- example1:
+    @RepeatedTest(10)
+    void myRepeatedTest() {}
+
+- example2:
+    @RepeatedTest(value = 10, name = "{displayName} : {currentRepetition} - {totalRepetitions}")
+    @DisplayName("My Repeated Test")
+    void myRepeatedTest() {}
+
+- example3: repeated test with DI
+    @RepeatedTest(5)
+    void myRepeatedTestWithDI(TestInfo testInfo, RepetitionInfo repetitionInfo) {
+        System.out.println(testInfo.getDisplayName() + ": " + repetitionInfo.getCurrentRepetition());
+    }
+
+-
 
 
 
