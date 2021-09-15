@@ -218,7 +218,31 @@ import static org.hamcrest.Matchers.is;
 assertThat(owner.getCity(), is("Key West"));
 
 
+##################
+# Advanced Junit5
+##################
 
+# Tagging
+- used for grouping tests
+- example:
+@Tag("model")
+class OwnerTest {}
+
+- then in Run configurations -> Create new Junit -> change the Test Kind to Tags and then value as tag, say model
+- then when the test is run, it will only run tagged unit test classes
+
+# Nesting
+- can create nested test class inside another test class - same as inner class
+- example:
+class OwnerTest{
+        @Nested
+        class PetTest{}
+}
+
+# Interface
+- can create interface test
+- usage is to tag it and can implement in all the classes for tag testing
+- can define default methods in the interface
 
 
 

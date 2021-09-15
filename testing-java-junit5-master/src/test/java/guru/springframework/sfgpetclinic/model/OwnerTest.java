@@ -1,5 +1,6 @@
 package guru.springframework.sfgpetclinic.model;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -10,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * Created by rishi on 05/09/2021
  */
-class OwnerTest {
+class OwnerTest implements ModelTests {
 
     @Test
     void dependentAssertions() {
