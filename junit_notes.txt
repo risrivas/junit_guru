@@ -261,7 +261,8 @@ class OwnerTest{
         System.out.println(testInfo.getDisplayName() + ": " + repetitionInfo.getCurrentRepetition());
     }
 
--
+- example3 only works with RepetitionInfo if the test case is annotated with @Repeated
+
 
 
 
