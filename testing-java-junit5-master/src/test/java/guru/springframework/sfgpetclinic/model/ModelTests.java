@@ -11,6 +11,6 @@ import org.junit.jupiter.api.TestInfo;
 public interface ModelTests {
     @BeforeEach
     default void beforeEach(TestInfo testInfo) {
-        System.out.printf("Running test (%s)%n", testInfo.getDisplayName());
+        //System.out.printf("Running test (%s)%n", testInfo.getDisplayName());
     }
 }
