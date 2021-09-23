@@ -321,5 +321,13 @@ class OwnerTest{
         );
     }
 
+- Custom Provider test - can take parameters from separate class which implements ArgumentsProvider
+    @DisplayName("Custom Provider Test")
+    @ParameterizedTest(name = "{displayName} - [{index}] {arguments}")
+    @ArgumentsSource(CustomArgsProvider.class)
+    void fromCustomerProviderTest(String stateName, int val1, int val2) {
+        System.out.printf("%s = %d:%d%n", stateName, val1, val2);
+    }
 
+-
 
