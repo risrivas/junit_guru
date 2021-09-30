@@ -391,3 +391,44 @@ maven-surefire-report-plugin
 ############################
 Forked project: https://github.com/risrivas/testing-java-junit5-gradle
 
+
+
+
+
+
+##########
+# Mockito
+##########
+- 2 maven dependencies
+mockito-core
+mockito-junit-jupiter
+
+- can create mock for any class - calling any method on mock will return default value if not void return type
+Map mapMock = mock(Map.class);
+assertEquals(0, mapMock.size());
+
+- can use annotations to create mock
+@Mock
+Map<String, Object> mapMock;
+
+- should use annotation at class level to avoid any setup method
+@ExtendWith(MockitoExtension.class)
+public class JUnitExtensionTest {}
+
+# Inject mocks
+- if a class has a dependency in a constructor
+example:
+    private final SpecialtyRepository specialtyRepository;
+
+    public SpecialitySDJpaService(SpecialtyRepository specialtyRepository) {
+        this.specialtyRepository = specialtyRepository;
+    }
+
+- create a mock like this:
+    @Mock
+    SpecialtyRepository specialtyRepository;
+
+    @InjectMocks
+    SpecialitySDJpaService service;
+
+- now can use service and all its methods to test
