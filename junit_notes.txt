@@ -432,3 +432,50 @@ example:
     SpecialitySDJpaService service;
 
 - now can use service and all its methods to test
+
+# verify
+- if mock is calling any method, we can verify how many times and arguments it called any method
+- example:
+
+- code
+    @Override
+    public void deleteById(Long aLong) {
+        specialtyRepository.deleteById(aLong);
+    }
+
+- test code
+    @Test
+    void deleteById() {
+        service.deleteById(1L);
+        service.deleteById(1L);
+
+        verify(specialtyRepository, times(2)).deleteById(1L);
+    }
+
+- other methods likes times()
+verify(specialtyRepository, atLeastOnce()).deleteById(1L);
+verify(specialtyRepository, atMost(5)).deleteById(1L);
+verify(specialtyRepository, never()).deleteById(4L);
+
+# return values from mock
+- if the mock is returning any value, then we can return whatever value we want to return
+- example:
+
+- code
+    @Override
+    public Speciality findById(Long aLong) {
+        return specialtyRepository.findById(aLong).orElse(null);
+    }
+
+- test code
+    @Test
+    void findByIdTest() {
+        Speciality speciality = new Speciality();
+        when(specialtyRepository.findById(1L)).thenReturn(Optional.of(speciality));
+
+        Speciality foundSpeciality = service.findById(1L);
+
+        assertThat(foundSpeciality).isNotNull();
+        verify(specialtyRepository).findById(1L);
+    }
+
