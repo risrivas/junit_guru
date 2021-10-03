@@ -470,12 +470,20 @@ verify(specialtyRepository, never()).deleteById(4L);
 - test code
     @Test
     void findByIdTest() {
-        Speciality speciality = new Speciality();
+        Speciality speciality = new Speciality("mock special");
         when(specialtyRepository.findById(1L)).thenReturn(Optional.of(speciality));
 
         Speciality foundSpeciality = service.findById(1L);
 
         assertThat(foundSpeciality).isNotNull();
+        assertThat(foundSpeciality.getDescription()).isEqualTo("mock special");
+
         verify(specialtyRepository).findById(1L);
     }
+
+- can use any(), any(abc.class), anyLong() etc in verify method arguments
+verify(specialtyRepository).findById(anyLong());
+verify(specialtyRepository).delete(any(Speciality.class));
+
+
 
