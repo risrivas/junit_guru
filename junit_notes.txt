@@ -510,7 +510,6 @@ then(specialtyRepository).should().findById(1L);
 then(specialtyRepository).should(times(1)).findById(anyLong());
 then(specialtyRepository).shouldHaveNoMoreInteractions();
 
-
     @Test
     void findByIdBddTest() {
         // given
