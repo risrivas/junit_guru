@@ -527,3 +527,8 @@ then(specialtyRepository).shouldHaveNoMoreInteractions();
         then(specialtyRepository).shouldHaveNoMoreInteractions();
     }
 
+
+
+###################
+# Advanced Mockito
+###################
