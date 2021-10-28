@@ -532,3 +532,34 @@ then(specialtyRepository).shouldHaveNoMoreInteractions();
 ###################
 # Advanced Mockito
 ###################
+
+# throw exceptions
+examples:
+- using doThrow().when()
+    @Test
+    void testDoThrow() {
+        doThrow(new RuntimeException("boom")).when(specialtyRepository).delete(any(Speciality.class));
+        assertThrows(RuntimeException.class,
+                () -> specialtyRepository.delete(new Speciality()));
+        verify(specialtyRepository).delete(any(Speciality.class));
+    }
+
+- using bdd - given().willThrow()
+    @Test
+    void testFindByIDThrows() {
+        given(specialtyRepository.findById(1L)).willThrow(new RuntimeException("boom"));
+        assertThrows(RuntimeException.class,
+                () -> specialtyRepository.findById(1L));
+        then(specialtyRepository).should().findById(1L);
+    }
+
+- using bdd - willThrow().given()
+    @Test
+    void testDeleteBDD() {
+        willThrow(new RuntimeException("boom")).given(specialtyRepository).delete(any(Speciality.class));
+        assertThrows(RuntimeException.class,
+                () -> specialtyRepository.delete(new Speciality()));
+        then(specialtyRepository).should().delete(any(Speciality.class));
+    }
+
+
