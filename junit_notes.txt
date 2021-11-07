@@ -587,3 +587,45 @@ examples:
     }
 
 
+# Argument Captors
+- when the mock is calling a method with an argument, the argument can be captured and then tested
+- this is useful to test if the argument passed to the testing method is changed as expected
+
+example:
+
+        // find owners by last name
+        List<Owner> results = ownerService.findAllByLastNameLike("%"+ owner.getLastName() + "%");
+
+- ownerService is a mock
+- capture the argument like this:
+        // given
+        List<Owner> owners = new ArrayList<>();
+        final ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
+        when(service.findAllByLastNameLike(captor.capture())).thenReturn(owners);
+
+- then we can test the argument value using assert
+        // then
+        assertEquals("%Wright%", captor.getValue());
+
+- complete test:
+    @Test
+    void testProcessFindFormWildcardString() {
+        // given
+        List<Owner> owners = new ArrayList<>();
+        final ArgumentCaptor<String> captor = ArgumentCaptor.forClass(String.class);
+        when(service.findAllByLastNameLike(captor.capture())).thenReturn(owners);
+
+        // when
+        String viewName = controller.processFindForm(owner, result, null);
+
+        // then
+        assertEquals("%Wright%", captor.getValue());
+    }
+
+
+- we can also use annotations to create captor
+    @Captor
+    ArgumentCaptor<String> stringArgumentCaptor;
+
+
+
