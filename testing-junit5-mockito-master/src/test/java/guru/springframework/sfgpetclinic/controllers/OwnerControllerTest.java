@@ -28,6 +28,9 @@ class OwnerControllerTest {
     @Mock
     BindingResult result;
 
+    @Mock
+    Model model;
+
     @Captor
     ArgumentCaptor<String> stringArgumentCaptor;
 
@@ -87,13 +90,18 @@ class OwnerControllerTest {
     void testProcessFindFormWildcardFound() {
         // given
         owner = new Owner(1L, "John", "FindMe");
+        InOrder inOrder = inOrder(service, model);
 
         // when
-        String viewName = controller.processFindForm(owner, result, Mockito.mock(Model.class));
+        String viewName = controller.processFindForm(owner, result, model);
 
         // then
         assertEquals("%FindMe%", stringArgumentCaptor.getValue());
         assertEquals("owners/ownersList", viewName);
+
+        // inorder asserts
+        inOrder.verify(service).findAllByLastNameLike(anyString());
+        inOrder.verify(model).addAttribute(anyString(), anyList());
     }
 
     @Test

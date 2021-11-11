@@ -631,3 +631,27 @@ example:
 
 # Mockito Answers
 - very much like argument captors but gives more control on the return types
+
+
+# Order of interactions
+- need to verify if the methods on 2 or more mocks - which one was called earlier than other
+- use InOrder to verify the order of the method calls
+example:
+    @Test
+    void testProcessFindFormWildcardFound() {
+        // given
+        owner = new Owner(1L, "John", "FindMe");
+        InOrder inOrder = inOrder(service, model);
+
+        // when
+        String viewName = controller.processFindForm(owner, result, model);
+
+        // then
+        assertEquals("%FindMe%", stringArgumentCaptor.getValue());
+        assertEquals("owners/ownersList", viewName);
+
+        // inorder asserts
+        inOrder.verify(service).findAllByLastNameLike(anyString());
+        inOrder.verify(model).addAttribute(anyString(), anyList());
+    }
+
