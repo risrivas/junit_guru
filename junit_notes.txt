@@ -655,3 +655,32 @@ example:
         inOrder.verify(model).addAttribute(anyString(), anyList());
     }
 
+
+
+# Verify interactions within specified time
+- can add timeout() in verification
+example:
+    @Test
+    void deleteById() {
+        // given - none
+
+        // when
+        service.deleteById(1L);
+        service.deleteById(1L);
+
+        // then
+        then(specialtyRepository).should(timeout(100).times(2)).deleteById(1L);
+    }
+
+
+# Verify no more or zero interactions
+- when mock is not called at all or not called any more
+verifyZeroInteractions(model)
+verifyNoMoreInteractions(model)
+
+
+# Spy
+- used to call real methods instead of just mock
+- can also be used as mocking
+
+

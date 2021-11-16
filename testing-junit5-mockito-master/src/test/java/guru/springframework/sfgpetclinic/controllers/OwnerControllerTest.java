@@ -84,6 +84,7 @@ class OwnerControllerTest {
         // then
         assertEquals("%DontFindMe%", stringArgumentCaptor.getValue());
         assertEquals("owners/findOwners", viewName);
+        verifyZeroInteractions(model);
     }
 
     @Test
@@ -101,7 +102,8 @@ class OwnerControllerTest {
 
         // inorder asserts
         inOrder.verify(service).findAllByLastNameLike(anyString());
-        inOrder.verify(model).addAttribute(anyString(), anyList());
+        inOrder.verify(model, times(1)).addAttribute(anyString(), anyList());
+        verifyNoMoreInteractions(model);
     }
 
     @Test
